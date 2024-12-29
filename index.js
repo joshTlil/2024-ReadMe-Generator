@@ -38,7 +38,7 @@ const promptUser = (questions) =>{
 const init = () =>{
     promptUser(questions)
     .then((data)=>{
-        writeFile("index.html", generateMarkdown(data), (err)=>{
+        writeFile("myRead.md", generateMarkdown(data), (err)=>{
           if (err) throw err;
           console.log("The file has been created")
         })
