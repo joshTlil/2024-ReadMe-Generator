@@ -10,6 +10,13 @@ const questions = [
     "Test Instructions"
 ]
 
+function writeToFile(fileName, data){
+writeFile(fileName+".md", generateMarkdown(data), (err)=>{
+    if (err) throw err;
+    console.log("The file has been created")
+})
+}
+
 const promptUser = (questions) =>{
     return inquirer.prompt([
     {
@@ -28,9 +35,10 @@ const promptUser = (questions) =>{
         message: questions[2]
     },
     {
-        type: 'input',
+        type: 'list',
         name: 'license',
-        message: questions[3]
+        message: questions[3],
+        choices:['MIT', 'ISC']
     }
     ])
 }
@@ -38,11 +46,9 @@ const promptUser = (questions) =>{
 const init = () =>{
     promptUser(questions)
     .then((data)=>{
-        writeFile("README.md", generateMarkdown(data), (err)=>{
-          if (err) throw err;
-          console.log("The file has been created")
-        })
-      })
+        let fileName = "README"
+        writeToFile(fileName, data)
+    })
 }
 
 init()
