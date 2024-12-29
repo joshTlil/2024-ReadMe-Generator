@@ -13,16 +13,15 @@ function licenseLink(data){
 }
 
 function licenseSection(data){
-    return `#${licenseBadge(data), licenseLink(data)}`
+    return `#${licenseBadge(data)} ${licenseLink(data)}`
 }
 
 function generateMarkdown(data){
     return `# ${data.name},
-    # ${data.description},
-    # ${data.instruction}
-    ${licenseBadge(data.license)}
-    ${licenseLink(data.license)}
-    `
+# ${data.description},
+# ${data.instruction},
+${licenseSection(data.license)}
+`
 }
 
 export default generateMarkdown;
