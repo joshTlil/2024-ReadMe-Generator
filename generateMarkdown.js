@@ -13,7 +13,7 @@ function licenseLink(data){
 }
 
 function licenseSection(data){
-    return `#${licenseBadge(data)}${licenseLink(data)}`
+    return `#${licenseBadge(data), licenseLink(data)}`
 }
 
 function generateMarkdown(data){
